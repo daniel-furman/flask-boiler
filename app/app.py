@@ -14,8 +14,8 @@ def run_pipes():
             now = datetime.now()  # current date and time
             date_time = now.strftime("%m_%d_%Y_%H_%M_%S")
 
-            if not os.path.exists(f"data/raw/{date_time}"):
-                os.mkdir(f"data/raw/{date_time}")
+            if not os.path.exists(f"data/results/{date_time}"):
+                os.mkdir(f"data/results/{date_time}")
 
             temp_json = request.get_json()
 
@@ -26,6 +26,7 @@ def run_pipes():
 
             # some operation
             # <>
+            # now save results to docker container
 
             output_fpath = os.path.join(
                 output_folder, date_time, "some_results.parquet"
