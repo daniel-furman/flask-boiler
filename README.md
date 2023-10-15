@@ -7,3 +7,7 @@ Barebones hello world API with flask
 ```
 docker-compose up --build
 ```
+
+## to dos
+ * add sqlite db server
+ * add redis worker server
