@@ -3,6 +3,34 @@ services:
   app:
     build: ./app
     container_name: "app"
+    links:
+      - db
     ports:
       - "8000:5000"
 
+  db:
+    image: mysql:5.7
+    platform: linux/amd64
+    container_name: "db"
+    ports:
+      - "32000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    expose:
+      - '6379'
+
+  worker:
+    build: ./worker
+    container_name: worker
+    command: rq worker --with-scheduler -u "redis://redis:6379"
+    deploy:
+      replicas: 1
+    depends_on:
+      - redis
