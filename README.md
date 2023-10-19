@@ -10,14 +10,14 @@ docker-compose up
 
 ## routes
 
-1. /v1/run_pipeline 
-    * methods=["PUT"]
+1. ```/v1/run_pipeline```
+    * methods="PUT"
     * no input
-2. /v1/grab_datetimes
-    * methods=["GET"]
+2. ```/v1/grab_datetimes```
+    * methods="GET"
     * no input
-3. v1/grab_one_datetime
-    * methods=["GET"]
+3. ```v1/grab_one_datetime```
+    * methods="GET"
     * input json with key "datetime_id"
 
 ## resources
