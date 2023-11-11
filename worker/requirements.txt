@@ -1,6 +1,0 @@
-flask
-rq
-redis
-requests
-mysql-connector
-simplejson

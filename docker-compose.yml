@@ -27,8 +27,8 @@ services:
       - '6379'
 
   worker:
-    build: ./worker
-    container_name: worker
+    build: ./app
+    container_name: "worker"
     command: rq worker --with-scheduler -u "redis://redis:6379"
     deploy:
       replicas: 1

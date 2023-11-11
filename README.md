@@ -1,6 +1,6 @@
 # flask boiler
 
-Barebones backend server running on flask, mysql, and redis
+Barebones backend server running on flask, mysql, and redis queue
 
 ## setup
 
@@ -10,15 +10,12 @@ docker-compose up
 
 ## routes
 
-1. ```/v1/run_pipeline```
-    * methods="PUT"
-    * no input
-2. ```/v1/grab_datetimes```
-    * methods="GET"
-    * no input
-3. ```v1/grab_one_datetime```
-    * methods="GET"
-    * input json with key "datetime_id"
+* ```/v1/run_pipe``` (PUT)
+* ```/v1/grab_datetimes``` (GET)
+* ```v1/grab_one_datetime``` (GET)
+
+## azure deployment
+* https://learn.microsoft.com/en-us/azure/container-instances/tutorial-docker-compose
 
 ## resources
 * https://dev.mysql.com/doc/mysql-getting-started/en/

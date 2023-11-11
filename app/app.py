@@ -41,8 +41,8 @@ def get_connection():
     return conn
 
 
-@app.route("/v1/run_pipeline", methods=["PUT"])
-def run_pipes():
+@app.route("/v1/run_pipe", methods=["PUT"])
+def run_pipe():
     if request.method == "PUT":
         queue.enqueue(get_datetime)
         return {"success": "async worker queued", "status": 200}, 200
@@ -54,7 +54,7 @@ def grab_datetimes():
         # grab all temps from db
         connection = get_connection()
         cursor = connection.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM datetime_table")
+        cursor.execute("SELECT * FROM sample_table")
         response_datetimes = cursor.fetchall()
         cursor.close()
         connection.close()
@@ -72,7 +72,7 @@ def grab_one_datetime():
         datetime_id = temp_json["datetime_id"]
 
         cursor.execute(
-            f'SELECT * FROM datetime_table WHERE datetime_id = "{datetime_id}"',
+            f'SELECT * FROM sample_table WHERE datetime_id = "{datetime_id}"',
         )
         response_temp = cursor.fetchone()
         cursor.close()

@@ -22,11 +22,11 @@ def get_datetime():
 
     now = datetime.now()  # current date and time
     datetime_id = now.strftime("%m_%d_%Y_%H_%M_%S")
-    random_uuid = uuid.uuid4()
+    random_uuid = str(uuid.uuid4())
 
     try:
         cursor.execute(
-            "INSERT INTO datetime_table (temp_entry_id, datetime_id) VALUES (?, ?)",
+            "INSERT INTO sample_table (temp_entry_id, datetime_id) VALUES (?, ?)",
             (random_uuid, datetime_id),
         )
         db_conn.commit()

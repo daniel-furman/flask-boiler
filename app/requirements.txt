@@ -1,6 +1,6 @@
-flask
-rq
-redis
-requests
-mysql-connector
-simplejson
+flask==3.0.*
+rq==1.15.*
+redis==5.0.*
+requests==2.31.*
+mysql-connector==2.2.*
+simplejson==3.19.*
