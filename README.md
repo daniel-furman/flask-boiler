@@ -14,9 +14,9 @@ docker-compose up
 * ```/v1/grab_datetimes``` (GET)
 * ```/v1/grab_one_datetime``` (GET)
 
-## azure deployment
+## azure deployment docs
 * https://learn.microsoft.com/en-us/azure/container-instances/tutorial-docker-compose
 
-## resources
+## other resources
 * https://dev.mysql.com/doc/mysql-getting-started/en/
 * https://github.com/UCB-INFO-BACKEND-WEBARCH/spring-22-labs/tree/main

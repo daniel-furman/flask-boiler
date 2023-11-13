@@ -6,7 +6,7 @@ import mysql.connector
 from redis import Redis
 from rq import Queue
 
-from worker import get_datetime
+from async import get_datetime
 
 r = Redis(host="redis", port=6379)
 queue = Queue(connection=r)
