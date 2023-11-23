@@ -26,10 +26,10 @@ services:
     expose:
       - '6379'
 
-  async:
+  worker:
     build: ./app
-    container_name: "async"
-    command: rq async --with-scheduler -u "redis://redis:6379"
+    container_name: "worker"
+    command: rq worker --with-scheduler -u "redis://redis:6379"
     deploy:
       replicas: 1
     depends_on:

@@ -1,5 +1,6 @@
 import mysql.connector
 from datetime import datetime
+import time
 import uuid
 
 
@@ -20,6 +21,7 @@ def get_datetime():
     db_conn = get_connection()
     cursor = db_conn.cursor(prepared=True)
 
+    time.sleep(30)
     now = datetime.now()  # current date and time
     datetime_id = now.strftime("%m_%d_%Y_%H_%M_%S")
     random_uuid = str(uuid.uuid4())

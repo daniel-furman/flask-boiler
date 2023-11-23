@@ -6,26 +6,12 @@ import mysql.connector
 from redis import Redis
 from rq import Queue
 
-from async import get_datetime
+from worker import get_datetime
 
 r = Redis(host="redis", port=6379)
 queue = Queue(connection=r)
 
 app = Flask(__name__)
-
-# create folder structure within docker container
-if not os.path.exists(f"data"):
-    os.mkdir(f"data")
-if not os.path.exists(f"data/raw"):
-    os.mkdir(f"data/raw")
-if not os.path.exists(f"data/raw/cleaned"):
-    os.mkdir(f"data/raw/cleaned")
-if not os.path.exists(f"data/raw/received"):
-    os.mkdir(f"data/raw/received")
-if not os.path.exists(f"data/raw/working"):
-    os.mkdir(f"data/raw/working")
-if not os.path.exists(f"data/results"):
-    os.mkdir(f"data/results")
 
 
 def get_connection():
@@ -61,9 +47,9 @@ def grab_datetimes():
         return {"response_datetimes": response_datetimes}, 200
 
 
-@app.route("/v1/grab_one_datetime", methods=["GET"])
+@app.route("/v1/grab_one_datetime", methods=["POST"])
 def grab_one_datetime():
-    if request.method == "GET":
+    if request.method == "POST":
         # grab temp from db with json input
         connection = get_connection()
         cursor = connection.cursor(dictionary=True)

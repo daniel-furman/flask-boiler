@@ -12,7 +12,7 @@ docker-compose up
 
 * ```/v1/run_pipe``` (PUT)
 * ```/v1/grab_datetimes``` (GET)
-* ```/v1/grab_one_datetime``` (GET)
+* ```/v1/grab_one_datetime``` (POST)
 
 ## azure deployment docs
 * https://learn.microsoft.com/en-us/azure/container-instances/tutorial-docker-compose
